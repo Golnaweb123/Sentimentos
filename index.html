@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreador de sentimentos semanais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ebdbdb;
+            background-image: ;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgb(238, 218, 218);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        input, select, button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #bb3535;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2580e2;
+        }
+        .hacked {
+            font-family: monospace;
+            color: red;
+            background: black;
+            padding: 10px;
+            display: none;
+        }
+    </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            document.body.innerHTML = "";
+            const hackedMessage = document.createElement("div");
+            hackedMessage.classList.add("hacked");
+            hackedMessage.innerText = "Acesso garantido\nHackeando sistema...\nBaixando data do usuário...";
+            document.body.appendChild(hackedMessage);
+            
+            let count = 0;
+            const interval = setInterval(() => {
+                hackedMessage.innerText += "\nERROR: SYSTEM OVERRIDE!";
+                count++;
+                if (count > 3) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        alert("Peguei seus dados se fodakkkkkkkkkkkk");
+                        location.reload();
+                    }, 2000);
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Como está seus sentimentos ?</h2>
+        <p>Responda rapidinho este formulário, talvez te deixe em paz poder desabafar um pouco! <p/>
+            <p>(Não se preocupe, seus dados não são salvos, já que são apagados no final de todo questionário)</p>
+        <form onsubmit="handleSubmit(event)">
+            <p>"Você ficou chateado por mais de 4 dias nessa semana?"</p>
+            <label for="upsetDays">Dias que fiquei chateado:</label>
+            <input type="number" id="upsetDays" name="upsetDays" min="0" max="7" required><br><br>
+            
+            <p>"Como você está se sentindo hoje"</p>
+            <label for="feelingToday">Selecione seu sentimento:</label>
+            <select id="feelingToday" name="feelingToday" required>
+                <option value="Feliz">Feliz</option>
+                <option value="Triste">Triste</option>
+                <option value="Estressado">Estressado</option>
+                <option value="Enérgico">Enérgico</option>
+                <option value="meh">Meh</option>
+            </select><br><br>
+            
+            <p>"Qual foi o melhor dia da sua semana ?"</p>
+            <input type="text" id="bestPart" name="bestPart" required><br><br>
+            
+            <p>"Qual foi a pior parte da sua semana ?"</p>
+            <input type="text" id="worstPart" name="worstPart" required><br><br>
+            
+            <p>"Como você quer que seja sua proxima semana ?"</p>
+            <input type="text" id="nextWeek" name="nextWeek" required><br><br>
+            
+            <h3>Informações</h3>
+            <label for="fullName">Nome Completo:</label>
+            <input type="text" id="fullName" name="fullName" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="phone">CPF:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
