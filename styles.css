@@ -1,8 +1,42 @@
 body {
     margin: 0;
     overflow: hidden;
+    font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
 }
+.container {
+            background: rgb(238, 218, 218);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        input, select, button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #bb3535;
+            border-radius: 5px;
+        }
 
+ button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2580e2;
+        }
+        .hacked {
+            font-family: monospace;
+            color: red;
+            background: black;
+            padding: 10px;
+            display: none;
+        }
 #sky {
     height: 100vh;
     width: 100vw;
