@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rastreador de sentimentos semanais</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rastreador de sentimentos semanais</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h2>Como estão seus sentimentos?</h2>
-        <p>Responda rapidinho este formulário, talvez te deixe em paz poder desabafar um pouco!</p>
-        <p>(Não se preocupe, seus dados não são salvos, já que são apagados no final de todo questionário)</p>
+  <div id="sky"></div>
 
-        <form onsubmit="handleSubmit(event)">
-            <p>Por quantos dias você ficou chateado nesta semana?</p>
-            <label for="upsetDays">Dias que fiquei chateado:</label>
-            <input type="number" id="upsetDays" name="upsetDays" min="0" max="7" required><br><br>
-            
-            <p>Como você está se sentindo hoje?</p>
-            <label for="feelingToday">Selecione seu sentimento:</label>
-            <select id="feelingToday" name="feelingToday" required>
-                <option value="Feliz">Feliz</option>
-                <option value="Triste">Triste</option>
-                <option value="Estressado">Estressado</option>
-                <option value="Enérgico">Enérgico</option>
-                <option value="meh">Meh</option>
-            </select><br><br>
-            
-            <p>Qual foi o melhor dia da sua semana?</p>
-            <input type="text" id="bestPart" name="bestPart" required><br><br>
-            
-            <p>Qual foi a pior parte da sua semana?</p>
-            <input type="text" id="worstPart" name="worstPart" required><br><br>
-            
-            <p>Como você quer que seja sua próxima semana?</p>
-            <input type="text" id="nextWeek" name="nextWeek" required><br><br>
-            
-            <h3>Informações</h3>
-            <label for="fullName">Nome Completo:</label>
-            <input type="text" id="fullName" name="fullName" required><br><br>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
-            
-            <label for="phone">CPF:</label>
-            <input type="tel" id="phone" name="phone" required><br><br>
-            
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-     
+  <div class="container">
+    <h2>Como estão seus sentimentos?</h2>
+    <p>Responda rapidinho este formulário, talvez te deixe em paz poder desabafar um pouco!</p>
+    <p>(Não se preocupe, seus dados não são salvos, já que são apagados no final de todo questionário)</p>
 
-    <script src="script.js"></script>
-    <div id="sky"></div>
+    <form onsubmit="handleSubmit(event)">
+      <p>Por quantos dias você ficou chateado nesta semana?</p>
+      <label for="upsetDays">Dias que fiquei chateado:</label>
+      <input type="number" id="upsetDays" name="upsetDays" min="0" max="7" required><br><br>
+
+      <p>Como você está se sentindo hoje?</p>
+      <label for="feelingToday">Selecione seu sentimento:</label>
+      <select id="feelingToday" name="feelingToday" required>
+        <option value="Feliz">Feliz</option>
+        <option value="Triste">Triste</option>
+        <option value="Estressado">Estressado</option>
+        <option value="Enérgico">Enérgico</option>
+        <option value="meh">Meh</option>
+      </select><br><br>
+
+      <p>Qual foi o melhor dia da sua semana?</p>
+      <input type="text" id="bestPart" name="bestPart" required><br><br>
+
+      <p>Qual foi a pior parte da sua semana?</p>
+      <input type="text" id="worstPart" name="worstPart" required><br><br>
+
+      <p>Como você quer que seja sua próxima semana?</p>
+      <input type="text" id="nextWeek" name="nextWeek" required><br><br>
+
+      <h3>Informações</h3>
+      <label for="fullName">Nome Completo:</label>
+      <input type="text" id="fullName" name="fullName" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="phone">CPF:</label>
+      <input type="tel" id="phone" name="phone" required><br><br>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
