@@ -1,97 +1,110 @@
 body {
-    margin: 0;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
 }
-.container {
-            background: rgb(238, 218, 218);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: auto;
-        }
-        input, select, button {
-            margin-top: 10px;
-            padding: 10px;
-            width: 100%;
-            border: 1px solid #bb3535;
-            border-radius: 5px;
-        }
 
- button {
-            background-color: #007BFF;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #2580e2;
-        }
-        .hacked {
-            font-family: monospace;
-            color: red;
-            background: black;
-            padding: 10px;
-            display: none;
-        }
 #sky {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    background-image: linear-gradient(rgb(100, 100, 226), rgb(57, 57, 230));
-    overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(1, 17, 241, 0.452), rgba(0, 110, 255, 0.76));
+  overflow: hidden;
+  z-index: 0;
 }
 
 @keyframes floatUp {
-    from {
-        transform: translateY(0) translateX(0);
-    }
-    to {
-        transform: translateY(-1200px) translateX(100px); /* sobe e move ligeiramente para a direita */
-    }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-120vh); /* sobe além do topo da tela */
+  }
 }
 
 .cloud {
-    position: absolute;
-    animation-name: floatUp;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+  position: absolute;
+  top: 100vh; /* começa fora da tela (embaixo) */
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 0;
 }
+
+
+.container {
+  background: rgba(143, 211, 238, 0.486);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+input, select, button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #35bb4b;
+  border-radius: 5px;
+  /*left: 500px;*/
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  left: 100px;
+}
+
+button:hover {
+  background-color: #2580e2;
+}
+
 .resumo {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    text-align: left;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    animation: fadeIn 1s ease;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease;
+  z-index: 1;
+  position: relative;
 }
+
 .resumo button {
-    margin-top: 10px;
-    margin-right: 10px;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
 .resumo button:first-of-type {
-    background-color: #007BFF;
-    color: white;
+  background-color: #007BFF;
+  color: white;
 }
+
 .resumo button:last-of-type {
-    background-color: #28a745;
-    color: white;
+  background-color: #28a745;
+  color: white;
 }
+
 .resumo button:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
+
 @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
-
-
