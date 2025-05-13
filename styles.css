@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#sky {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-image: linear-gradient(rgb(100, 100, 226), rgb(57, 57, 230));
+    overflow: hidden;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) translateX(0);
+    }
+    to {
+        transform: translateY(-1200px) translateX(100px); /* sobe e move ligeiramente para a direita */
+    }
+}
+
+.cloud {
+    position: absolute;
+    animation-name: floatUp;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}

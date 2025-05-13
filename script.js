@@ -1,0 +1,27 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const sky = document.getElementById("sky");   
+    const cloudNum = 25;
+
+    function createClouds() { 
+        const cloud = document.createElement("img");
+        const randomSize = Math.random() * 800 + 400;
+        const randomDuration = Math.random() * 30 + 30; // entre 30s e 60s
+        const randomLeft = Math.random() * window.innerWidth;
+        const randomOpacity = Math.random() * 0.5 + 0.5; // entre 0.5 e 1
+
+        cloud.style.width = randomSize + "px";
+        cloud.style.left = randomLeft + "px";
+        cloud.style.top = window.innerHeight + "px";
+        cloud.style.opacity = randomOpacity;
+        cloud.style.animationDuration = randomDuration + "s";
+
+        cloud.src = "cloud.png";
+        cloud.classList.add("cloud");
+
+        sky.appendChild(cloud);
+    }
+
+    for (let i = 0; i < cloudNum; i++) {
+        createClouds(); 
+    }
+});
