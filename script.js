@@ -3,7 +3,6 @@ function handleSubmit(event) {
 
     const form = event.target;
 
-    // Pegando os dados preenchidos no formulário
     const data = {
         upsetDays: form.upsetDays.value,
         feelingToday: form.feelingToday.value,
@@ -15,29 +14,37 @@ function handleSubmit(event) {
         phone: form.phone.value
     };
 
-    // Esconde o formulário
+   
     form.style.display = "none";
 
-    // Cria o resumo
+   
     const summary = document.createElement("div");
     summary.classList.add("resumo");
 
     summary.innerHTML = `
-        <h2>Resumo dos seus sentimentos</h2>
-        <p><strong>Nome:</strong> ${data.fullName}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>CPF:</strong> ${data.phone}</p>
-        <p><strong>Dias chateado(a):</strong> ${data.upsetDays}</p>
-        <p><strong>Sentimento de hoje:</strong> ${data.feelingToday}</p>
-        <p><strong>Melhor parte da semana:</strong> ${data.bestPart}</p>
-        <p><strong>Pior parte da semana:</strong> ${data.worstPart}</p>
-        <p><strong>Desejo para a próxima semana:</strong> ${data.nextWeek}</p>
-        <br>
-        <p>✨ Seus dados foram exibidos apenas para você e não foram salvos. Obrigado por compartilhar!</p>
+        <div id="resumoConteudo">
+            <h2>Resumo dos seus sentimentos</h2>
+            <p><strong>Nome:</strong> ${data.fullName}</p>
+            <p><strong>Email:</strong> ${data.email}</p>
+            <p><strong>CPF:</strong> ${data.phone}</p>
+            <p><strong>Dias chateado(a):</strong> ${data.upsetDays}</p>
+            <p><strong>Sentimento de hoje:</strong> ${data.feelingToday}</p>
+            <p><strong>Melhor parte da semana:</strong> ${data.bestPart}</p>
+            <p><strong>Pior parte da semana:</strong> ${data.worstPart}</p>
+            <p><strong>Desejo para a próxima semana:</strong> ${data.nextWeek}</p>
+            <br>
+            <p>✨ Seus dados foram exibidos apenas para você e não foram salvos. Obrigado por compartilhar!</p>
+        </div>
         <button onclick="location.reload()">Preencher novamente</button>
+        <button onclick="baixarPDF()">Baixar como PDF</button>
     `;
 
     form.parentElement.appendChild(summary);
+}
+
+function baixarPDF() {
+    const element = document.getElementById("resumoConteudo");
+    html2pdf().from(element).save("resumo-sentimentos.pdf");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -57,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cloud.style.opacity = randomOpacity;
         cloud.style.animationDuration = randomDuration + "s";
 
-        cloud.src = "img/clouds.png"; // Nome corrigido
+        cloud.src = "img/clouds.png";
         cloud.classList.add("cloud");
 
         sky.appendChild(cloud);
