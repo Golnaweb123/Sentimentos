@@ -1,26 +1,45 @@
 function handleSubmit(event) {
-            event.preventDefault(); // Prevent form submission
-            
-            document.body.innerHTML = "";
-            const hackedMessage = document.createElement("div");
-            hackedMessage.classList.add("hacked");
-            hackedMessage.innerText = "Acesso garantido\nHackeando sistema...\nBaixando data do usuário...";
-            document.body.appendChild(hackedMessage);
-            
-            let count = 0;
-            const interval = setInterval(() => {
-                hackedMessage.innerText += "\nERROR: SYSTEM OVERRIDE!";
-                count++;
-                if (count > 3) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        alert("Peguei seus dados se fodakkkkkkkkkkkk");
-                        location.reload();
-                    }, 2000);
-                }
-            }, 1000);
-    
-        }
+    event.preventDefault();
+
+    const form = event.target;
+
+    // Pegando os dados preenchidos no formulário
+    const data = {
+        upsetDays: form.upsetDays.value,
+        feelingToday: form.feelingToday.value,
+        bestPart: form.bestPart.value,
+        worstPart: form.worstPart.value,
+        nextWeek: form.nextWeek.value,
+        fullName: form.fullName.value,
+        email: form.email.value,
+        phone: form.phone.value
+    };
+
+    // Esconde o formulário
+    form.style.display = "none";
+
+    // Cria o resumo
+    const summary = document.createElement("div");
+    summary.classList.add("resumo");
+
+    summary.innerHTML = `
+        <h2>Resumo dos seus sentimentos</h2>
+        <p><strong>Nome:</strong> ${data.fullName}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>CPF:</strong> ${data.phone}</p>
+        <p><strong>Dias chateado(a):</strong> ${data.upsetDays}</p>
+        <p><strong>Sentimento de hoje:</strong> ${data.feelingToday}</p>
+        <p><strong>Melhor parte da semana:</strong> ${data.bestPart}</p>
+        <p><strong>Pior parte da semana:</strong> ${data.worstPart}</p>
+        <p><strong>Desejo para a próxima semana:</strong> ${data.nextWeek}</p>
+        <br>
+        <p>✨ Seus dados foram exibidos apenas para você e não foram salvos. Obrigado por compartilhar!</p>
+        <button onclick="location.reload()">Preencher novamente</button>
+    `;
+
+    form.parentElement.appendChild(summary);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const sky = document.getElementById("sky");   
     const cloudNum = 25;
@@ -28,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function createClouds() { 
         const cloud = document.createElement("img");
         const randomSize = Math.random() * 800 + 400;
-        const randomDuration = Math.random() * 30 + 30; // entre 30s e 60s
+        const randomDuration = Math.random() * 30 + 30;
         const randomLeft = Math.random() * window.innerWidth;
-        const randomOpacity = Math.random() * 0.5 + 0.5; // entre 0.5 e 1
+        const randomOpacity = Math.random() * 0.5 + 0.5;
 
         cloud.style.width = randomSize + "px";
         cloud.style.left = randomLeft + "px";
@@ -38,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cloud.style.opacity = randomOpacity;
         cloud.style.animationDuration = randomDuration + "s";
 
-        cloud.src = "img/cloud.png";
+        cloud.src = "img/clouds.png"; // Nome corrigido
         cloud.classList.add("cloud");
 
         sky.appendChild(cloud);
