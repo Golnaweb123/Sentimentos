@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cloud.style.opacity = randomOpacity;
         cloud.style.animationDuration = randomDuration + "s";
 
-        cloud.src = "cloud.png";
+        cloud.src = "img/cloud.png";
         cloud.classList.add("cloud");
 
         sky.appendChild(cloud);
