@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const left = Math.random() * window.innerWidth;
     const opacity = Math.random() * 0.5 + 0.5;
 
-    cloud.src = "clouds.png";
+    cloud.src = "img/clouds.png";
     cloud.classList.add("cloud");
     cloud.style.width = size + "px";
     cloud.style.left = left + "px";
