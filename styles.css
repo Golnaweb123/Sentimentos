@@ -61,7 +61,7 @@ body {
     animation-iteration-count: infinite;
 }
 .resumo {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
@@ -70,15 +70,28 @@ body {
     animation: fadeIn 1s ease;
 }
 .resumo button {
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.resumo button:first-of-type {
+    background-color: #007BFF;
+    color: white;
+}
+.resumo button:last-of-type {
     background-color: #28a745;
+    color: white;
 }
 .resumo button:hover {
-    background-color: #218838;
+    opacity: 0.9;
 }
-
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(20px);}
     to {opacity: 1; transform: translateY(0);}
 }
+
 
